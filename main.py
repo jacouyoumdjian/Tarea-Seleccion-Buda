@@ -1,15 +1,9 @@
 # TAREA DE SELECCIÓN - BUDA
 
-# PARÁMETROS
-# archivo input
-# Una estación inicial
-# Una estación final
-# Un color de tren Rojo o Verde (opcional)
+# REFERENCIAS
+# - https://pencilprogrammer.com/algorithms/shortest-path-in-unweighted-graph-using-bfs/
 
-############################################################
 # class Node de grafo de estaciones
-
-
 class Node:
     def __init__(self, name, color):
         self.name = name
@@ -29,9 +23,20 @@ class Node:
 
 
 class ShortestPath:
+
     def __init__(self, start, end):
         self.start = start
         self.end = end
+
+    def print_route(self, route_list):
+        route_text = ""
+        for i_node in range(len(route_list)):
+            if i_node + 1 == len(route_list):
+                route_text += f"{route_list[i_node].name}"
+            else:
+                route_text += f"{route_list[i_node].name} -> "
+        print("\n")
+        print("La ruta más corta es: " + route_text)
 
     def bfs(self):
         # Crear una cola
@@ -71,13 +76,13 @@ class ShortestPath:
         # reverse the route bring start to the front
         route.reverse()
         # output route
-        print(route)
+        self.print_route(route)
 
 
-# Poblar el sistema desde input
+# *** Poblar el sistema desde input ***
 nodes_data = dict()
 all_node_name = []
-with open("input.txt", "r") as input_file:
+with open("input3.txt", "r") as input_file:
     for line in input_file:
         line_data = line.strip().split(";")
         node_data = line_data[0].split(",")
@@ -86,23 +91,10 @@ with open("input.txt", "r") as input_file:
         nodes_data[station_node.name] = [station_node, neighbors_data]
         all_node_name.append(node_data[0])
 
+# print(nodes_data)
 
-graph_station = dict()
-for node_name in all_node_name:
-    curr_node = nodes_data[node_name][0]
-    neighbor_nodes = nodes_data[node_name][1]
-    for nei_node_name in neighbor_nodes:
-        if nei_node_name:
-            neighbor_node = nodes_data[nei_node_name][0]
-            curr_node.add_neighbor(neighbor_node)
-    graph_station[node_name] = curr_node
-
-# for node_name in all_node_name:
-#     print(node_name)
-#     checking_nodes = graph_station[node_name].neighbors
-#     print(checking_nodes)
-
-# Recibir parámetros
+# *** Recibir parámetros ***
+print("\n")
 print("Elige una estación de inicio y una de término de las que aparecen a continuación: ")
 all_node_names_text = ""
 for i_node in range(len(all_node_name)):
@@ -115,11 +107,45 @@ print(all_node_names_text)
 print("\n")
 start_node = input("Ingrese estación de inicio: ")
 end_node = input("Ingrese estación de término: ")
-node_color = input("(Opcional) Ingrese estación un color: ")
-if node_color == '':
-    node_color = "SinColor"
+train_color = input("(Opcional) Ingrese un color de tren: ")
+if train_color == '':
+    train_color = "SinColor"
+
+# *** Crear dict ordenado con nodos ***
+graph_station = dict()
+for node_name in all_node_name:
+    curr_node = nodes_data[node_name][0]
+    neighbor_nodes = nodes_data[node_name][1]
+    for nei_node_name in neighbor_nodes:
+        if nei_node_name:
+            neighbor_node = nodes_data[nei_node_name][0]
+            curr_node.neighbors.append(neighbor_node)
+    graph_station[node_name] = curr_node
 
 
+if train_color != "SinColor":
+    for node_name in all_node_name:
+        if (graph_station[node_name].color == train_color) or (graph_station[node_name].color == "SinColor"):
+            new_neighbors = []
+            other_neighbors = []
+            # Copia de vecinos a recorrer
+            other_neighbors.extend(graph_station[node_name].neighbors)
+            for nn_i in range(len(other_neighbors)):
+                if (other_neighbors[nn_i].color != train_color) and (other_neighbors[nn_i].color != "SinColor"):
+                    new_neighbors.extend(other_neighbors[nn_i].neighbors)
+                    graph_station[node_name].neighbors.pop(0)
+
+            for new_i in new_neighbors:
+                if new_i.name != node_name:
+                    graph_station[node_name].neighbors.append(new_i)
+
+        elif (graph_station[node_name].color != train_color) and (graph_station[node_name].color != "SinColor"):
+            del graph_station[node_name]
+
+ShortestPath(graph_station[start_node], graph_station[end_node]).bfs()
+
+
+# BORRADORES
 # if __name__ == '__main__':
 #     # create nodes
 #     node_A = Node('A')
@@ -135,17 +161,3 @@ if node_color == '':
 #     node_B.add_neighbor(node_E)
 
 #     ShortestPath(node_A, node_E).bfs()
-ShortestPath(graph_station[start_node], graph_station[end_node]).bfs()
-############################################################
-
-# CASOS BORDES
-# - No puedo partir desde la última estación.
-
-# OUTPUT
-# Y tener como resultado la menor ruta según los parámetros, indicando todas las estaciones
-# que la componen. En caso de que haya más de una, basta con que se retorne una
-# cualquiera como resultado.
-
-
-# REFERENCIAS
-# - https://pencilprogrammer.com/algorithms/shortest-path-in-unweighted-graph-using-bfs/

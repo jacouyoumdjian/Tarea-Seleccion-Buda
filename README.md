@@ -29,4 +29,6 @@ Para ejecutar el programa se debe introducir por consola los siguiente parámetr
 
 ## Supuestos
 
-- Aqui van los supuestos
+- No puedo comenzar o terminar en nodos de un color que sean distinto al color que se ingresó como input, para así mantener la coherencia de la simulación.
+
+- Para términos de la simulación de las estaciones, no habrán dos estaciones del mismo color seguidas. Si pueden haber estaciones sin color seguidas.
