@@ -22,6 +22,7 @@ class Node:
         return self.name
 
 
+# class ShortestPath para represtar el camino más corto
 class ShortestPath:
 
     def __init__(self, start, end):
@@ -47,42 +48,42 @@ class ShortestPath:
 
         # BFS hasta que la cola se vacíe
         while queue:
-            # Pop a node from queue for search operation
+            # Pop a un nodo de la cola queue para búsqueda
             current_node = queue.pop(0)
-            # Loop through neighbors nodes to find the 'end' node
+            # Loop por los nodos vecinos hasta encontrar el término
             for node in current_node.neighbors:
                 if not node.visited:
-                    # visit and add neighbors nodes to the queue
+                    # Visitar y agregar vecinos a la cola
                     node.visited = True
                     queue.append(node)
-                    # update its preceding node
+                    # Actualizar su nodo predecesor
                     node.prev = current_node
-                    # stop BFS if the visited node is the end node
+                    # Terminar búsqueda BFS si el nodo visitado es el nodo de término
                     if node == self.end:
                         queue.clear()
                         break
-        # BFS completed, now trace the route
+        # BFS completado, ahora recorrer la ruta
         self.trace_route()
 
-    # Function to trace the route using preceding nodes
+    # Función para recorrer la ruta utilizando nodos predecesores
     def trace_route(self):
         node = self.end
         route = []
-        # start node has no preceding node
-        # so loop until node->prev is null
+        # Iniciar con nodo sin predecesor
+        # Loop hasta que node->prev sea null
         while node:
             route.append(node)
             node = node.prev
-        # reverse the route bring start to the front
+        # Revertir la ruta para traer el inicio al frente
         route.reverse()
-        # output route
+        # Output de ruta
         self.print_route(route)
 
 
 # *** Poblar el sistema desde input ***
 nodes_data = dict()
 all_node_name = []
-with open("input3.txt", "r") as input_file:
+with open("input.txt", "r") as input_file:
     for line in input_file:
         line_data = line.strip().split(";")
         node_data = line_data[0].split(",")
@@ -105,11 +106,25 @@ for i_node in range(len(all_node_name)):
 print("\n")
 print(all_node_names_text)
 print("\n")
+
+
 start_node = input("Ingrese estación de inicio: ")
 end_node = input("Ingrese estación de término: ")
-train_color = input("(Opcional) Ingrese un color de tren: ")
+train_color = input(
+    "(Opcional) Ingrese un color de tren (0: Rojo, 1: Verde): ")
+
+
 if train_color == '':
     train_color = "SinColor"
+
+else:
+    if train_color == '0':
+        train_color = "Rojo"
+    elif train_color == '1':
+        train_color = "Verde"
+    else:
+        print("Se ingresó un valor para el color del tren incorrecto, por favor inténtelo de nuevo.")
+
 
 # *** Crear dict ordenado con nodos ***
 graph_station = dict()
@@ -122,7 +137,7 @@ for node_name in all_node_name:
             curr_node.neighbors.append(neighbor_node)
     graph_station[node_name] = curr_node
 
-
+# *** Caso en que tren tiene color ***
 if train_color != "SinColor":
     for node_name in all_node_name:
         if (graph_station[node_name].color == train_color) or (graph_station[node_name].color == "SinColor"):
@@ -142,22 +157,8 @@ if train_color != "SinColor":
         elif (graph_station[node_name].color != train_color) and (graph_station[node_name].color != "SinColor"):
             del graph_station[node_name]
 
-ShortestPath(graph_station[start_node], graph_station[end_node]).bfs()
-
-
-# BORRADORES
-# if __name__ == '__main__':
-#     # create nodes
-#     node_A = Node('A')
-#     node_B = Node('B')
-#     node_C = Node('C')
-#     node_D = Node('D')
-#     node_E = Node('E')
-#     # connect nodes (i.e. create graph)
-#     node_A.add_neighbor(node_B)
-#     node_B.add_neighbor(node_C)
-#     node_C.add_neighbor(node_D)
-#     node_D.add_neighbor(node_E)
-#     node_B.add_neighbor(node_E)
-
-#     ShortestPath(node_A, node_E).bfs()
+try:
+    ShortestPath(graph_station[start_node.upper()],
+                 graph_station[end_node.upper()]).bfs()
+except:
+    print("Los valores ingresados en las estaciones y/o el color del tren, genera una ruta que no es alcanzable")
