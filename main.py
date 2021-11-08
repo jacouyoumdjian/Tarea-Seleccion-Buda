@@ -106,13 +106,10 @@ for i_node in range(len(all_node_name)):
 print("\n")
 print(all_node_names_text)
 print("\n")
-
-
 start_node = input("Ingrese estación de inicio: ")
 end_node = input("Ingrese estación de término: ")
 train_color = input(
     "(Opcional) Ingrese un color de tren (0: Rojo, 1: Verde): ")
-
 
 if train_color == '':
     train_color = "SinColor"
@@ -126,7 +123,7 @@ else:
         print("Se ingresó un valor para el color del tren incorrecto, por favor inténtelo de nuevo.")
 
 
-# *** Crear dict ordenado con nodos ***
+# *** Crear diccionario con nodos ***
 graph_station = dict()
 for node_name in all_node_name:
     curr_node = nodes_data[node_name][0]

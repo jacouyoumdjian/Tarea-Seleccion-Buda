@@ -1,4 +1,4 @@
-# TAREA DE SELECCIÓN - BUDA
+# TAREA DE SELECCIÓN | Buda.com - Metro
 
 ### Autor: Joaquín Couyoumdjian | [@jacouyoumdjian](https://www.github.com/jacouyoumdjian)
 
@@ -18,8 +18,8 @@ Python :snake:.
 
 ## Decisiones de Diseño
 
-- Se utilizaron clases (Programación Orienada a Objetos) para modelar las estaciones y la simulación de la ruta más corta.
-- Para almacenar los datos, se utilizaron diccionarios para que el acceso a la información sea lo más eficiente posible.
+- Se utilizaron Programación Orienada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
+- Para el almacenamiento de los datos, se utilizaron diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
 
 ## Ejecución del programa
 
@@ -31,11 +31,11 @@ Para ejecutar el programa se debe introducir por consola los siguiente parámetr
 
 ## Formato del archivo de entrada (_input_)
 
-A continuación, se presente el formato del archivo que recibe el programa como input. Todas las líneas del archivo tienen el mismo formato y contiene:
+A continuación, se presente el formato del archivo que recibe el programa como input. Este es un archivo de texto (.txt) y todas las líneas del archivo tienen el mismo formato conteniendo:
 
 `NODO,COLOR_DEL_NODO;VECINO_1,VECINO_2,...,VECINO_N`
 
-Un ejemplo de archivo sería:
+A modo de ejemplo, el archivo `input.txt` sería:
 
 ```
 A,SinColor;B
@@ -54,6 +54,6 @@ A -> B -> C -> H -> F
 
 ## Supuestos
 
-- En términos de los inputs de entrada, la estación inicial y final no pueden ser de un color distinto al color del tren que se ingresó como input, para así mantener la coherencia de la simulación.
+- En términos de los inputs de entrada, en el caso de que se ingrese un color de tren, este no puede ser un color distinto al de la estación inicial y final, para así mantener un coherencia de la simulación.
 
 - Para términos de la simulación de las estaciones, no habrán dos estaciones del mismo color seguidas. Si pueden haber estaciones sin color seguidas.
