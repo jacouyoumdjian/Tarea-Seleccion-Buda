@@ -7,6 +7,7 @@
 ```
 project
 │__ 📑README.md
+│__ 💻classes.py
 │__ 💻main.py
 |__ ⚙️.gitignore
 
@@ -23,7 +24,13 @@ Python :snake:.
 
 ## Ejecución del programa
 
-Para ejecutar el programa se debe introducir por consola los siguiente parámetros:
+Para ejecutar el programa se debe introducir el siguiente comando:
+
+`py main.py <archivo_input.txt>`
+
+Por ejemplo: `py main.py input.txt`
+
+Luego, en la ejecución misma, se solicitará introducir por consola los siguiente parámetros:
 
 - Una estación inicial de las que se muestra en consola (Ej: A, B, ...).
 - Una estación final de las que se muestra en consola (Ej: A, B, ...).
@@ -45,12 +52,15 @@ C,ROJO;B
 
 ## Salida (_output_)
 
-El output de salida del programa se visualiza por consola y corresponde a la menor ruta según los parámetros, indicando todas las estaciones
-que la componen. Un ejemplo de output es:
+El output de salida del programa se visualiza por consola y corresponde a la menor ruta según los parámetros indicados anteriormente. El output representa todas las estaciones que componen la ruta. Un ejemplo de output es:
 
 ```
 A -> B -> C -> H -> F
 ```
+
+## Ejecución de tests automáticos
+
+blabla
 
 ## Supuestos
 
