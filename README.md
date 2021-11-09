@@ -26,9 +26,9 @@ Python :snake:.
 
 Para ejecutar el programa se debe introducir el siguiente comando:
 
-`py main.py <archivo_input.txt>`
+`py main.py <ruta\archivo_input.txt>`
 
-Por ejemplo: `py main.py input.txt`
+Por ejemplo: `py main.py tests\input.txt`
 
 Luego, en la ejecución misma, se solicitará introducir por consola los siguiente parámetros:
 
