@@ -19,7 +19,7 @@ Python :snake:.
 
 ## Decisiones de Diseño
 
-- Se utilizaron Programación Orienada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
+- Se utilizaron Programación Orientada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
 - Para el almacenamiento de los datos, se utilizaron diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
 
 ## Ejecución del programa
