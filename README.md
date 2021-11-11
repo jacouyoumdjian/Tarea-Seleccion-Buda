@@ -31,7 +31,7 @@ Para ejecutar el programa se debe introducir el siguiente comando:
 
 `py main.py <ruta\archivo_input.txt>`
 
-Por ejemplo: `py main.py tests\input.txt`
+Por ejemplo, puede correr el comando: `py main.py tests\input.txt`
 
 Luego, en la ejecución misma, se solicitará introducir por consola los siguiente parámetros:
 
@@ -55,7 +55,7 @@ C,Rojo;B
 
 ## Salida (_output_)
 
-El output de salida del programa se visualiza por consola y corresponde a la menor ruta según los parámetros indicados anteriormente. El output representa todas las estaciones que componen la ruta. Un ejemplo de output sería:
+El _output_ del programa se visualiza por consola y corresponde a la menor ruta según los parámetros indicados anteriormente. El output representa todas las estaciones que componen la ruta. Un ejemplo de output sería:
 
 ```
 A -> B -> C -> H -> F
