@@ -65,7 +65,7 @@ A -> B -> C -> H -> F
 
 Los principales errores manejados en el código son los casos en que:
 
-- Se ingresan valores para la estación inicial, final o para el color de tren que generan una ruta que no es alcanzable. Por ejemplo, en el caso de que se quiera llegar desde una estación inicial sin color a una estación final color verde con un tren de color rojo. También, el caso de que se ingrese una estación que no pertenezca a la red de metro mostrada en consola. Para este caso se imprime en pantalla: `Los valores ingresados generan una ruta no alcanzable`.
+- Se ingresan valores para la estación inicial, final o para el color de tren que generan una ruta que no es alcanzable. Por ejemplo, en el caso de que se quiera llegar desde una estación inicial sin color a una estación final color verde con un tren de color rojo. También, el caso de que se ingrese una estación que no pertenezca a la red de metro mostrada en consola. Para estos casos se imprime en pantalla: `Los valores ingresados generan una ruta no alcanzable`.
 
 - Se ingresa un color para el tren que no corresponde a: sin color, rojo o verde. Para este caso se imprime en pantalla: `Se ingresó un valor para el color del tren incorrecto, por favor inténtelo de nuevo`.
 
@@ -75,7 +75,7 @@ Para correr los tests automáticos se debe ejecutar el siguiente comando:
 
 `py main_test.py`
 
-Los tests se construyeron con la lógica de calcular la ruta más corta entre dos estaciones fijas para distintas redes de metros, probando con cada uno de los posibles colores de tren (sin color, rojo o verde). Las rutas obtenidas se comparan con las respuestas presentes en el archivo `tests\output.txt` indicando por consola el resultado del test (CORRECTO O INCORRECTO).
+Los tests se construyeron con la lógica de calcular la ruta más corta entre dos estaciones fijas para distintas redes de metros, probando con cada uno de los posibles colores de tren (sin color, rojo o verde). Las rutas obtenidas se comparan con las respuestas presentes en el archivo `tests\output.txt` indicando por consola el resultado del test (CORRECTO o INCORRECTO).
 
 Tanto el archivo `output.txt` como los archivos de prueba que representan las distintas redes de metro, se encuentran en la carpeta `tests`. Cada línea del archivo `output.txt` contiene las respuestas correctas para cada red de metro con el siguiente formato:
 
