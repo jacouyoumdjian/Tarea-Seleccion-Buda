@@ -41,7 +41,6 @@ for filename in os.listdir(tests_directory):
             print("TEST: Tren verde: CORRECTO")
         else:
             print("TEST: Tren verde: INCORRECTO")
-
         print("===================================================")
         print("\n")
 
