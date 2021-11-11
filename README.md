@@ -6,10 +6,12 @@
 
 ```
 project
+│__ 📂tests
+|__ ⚙️.gitignore
 │__ 📑README.md
 │__ 💻classes.py
 │__ 💻main.py
-|__ ⚙️.gitignore
+│__ 💻main_test.py
 
 ```
 
@@ -19,8 +21,11 @@ Python :snake:.
 
 ## Decisiones de Diseño
 
-- Se utilizaron Programación Orientada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
-- Para el almacenamiento de los datos, se utilizaron diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
+- Se utilizó una Programación Orientada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
+
+- Para el almacenamiento de los datos, se utilizaró diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
+
+- En el caso de los tests automáticos se construyeron con la lógica de probar para distintas redes de metros, cuál sería la ruta más corta entre dos estaciones fijas para cada uno de los posibles colores de trenes (sin color, rojo o verde).
 
 ## Ejecución del programa
 
@@ -38,7 +43,7 @@ Luego, en la ejecución misma, se solicitará introducir por consola los siguien
 
 ## Formato del archivo de entrada (_input_)
 
-A continuación, se presente el formato del archivo que recibe el programa como input. Este es un archivo de texto (.txt) y todas las líneas del archivo tienen el mismo formato conteniendo:
+A continuación, se presente el formato del archivo que recibe el programa como input. Este es un archivo de texto (.txt) que represente una red de metro y todas las líneas del archivo tienen el mismo formato, conteniendo:
 
 `NODO,COLOR_DEL_NODO;VECINO_1,VECINO_2,...,VECINO_N`
 
@@ -46,8 +51,8 @@ A modo de ejemplo, el archivo `input.txt` sería:
 
 ```
 A,SinColor;B
-B,VERDE;A,C
-C,ROJO;B
+B,Verde;A,C
+C,Rojo;B
 ```
 
 ## Salida (_output_)
@@ -58,12 +63,20 @@ El output de salida del programa se visualiza por consola y corresponde a la men
 A -> B -> C -> H -> F
 ```
 
+## Manejo de Errores
+
+Los principales errores manejados en el código son los casos en que:
+
+- Se ingresan valores para la estación inicial, final o para color del tren que generan una ruta que no es alcanzable. Por ejemplo, en el caso de que se quiera llegar desde una estación sin color a una color verde con un tres express de color rojo. También, el caso de que se ingrese una estación que no pertenezca a la red de metro mostrada en consola. Para este caso se imprime en pantalla: `Los valores ingresados generan una ruta no alcanzable`.
+
+- Se ingresa un color para el tren que no corresponde a: Sin color, rojo o verde.
+
 ## Ejecución de tests automáticos
 
-blabla
+Para correr los tests automáticos se debe ejecutar el siguiente comando:
 
-## Supuestos
+`py main_test.py`
 
-- En términos de los inputs de entrada, en el caso de que se ingrese un color de tren, este no puede ser un color distinto al de la estación inicial y final, para así mantener un coherencia de la simulación.
+## Supuestos de Modelación
 
 - Para términos de la simulación de las estaciones, no habrán dos estaciones del mismo color seguidas. Si pueden haber estaciones sin color seguidas.

@@ -1,3 +1,0 @@
-A,SinColor;B
-B,Verde;A,C
-C,Rojo;B
