@@ -1,3 +1,4 @@
 A -> F -> C -> D -> E -> B;A -> F -> C -> H -> B;A -> F -> C -> G -> I -> B
 A -> C -> B;A -> B;Los valores ingresados generan una ruta no alcanzable
-Sin_respuesta;Sin_respuesta;Sin_respuesta
+A -> C -> E -> B;A -> D -> B;Los valores ingresados generan una ruta no alcanzable
+A -> C -> H -> B;A -> C -> H -> B;A -> D -> B

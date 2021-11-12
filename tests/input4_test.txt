@@ -1,0 +1,8 @@
+A,SinColor;C
+B,SinColor;G,H
+C,Rojo;A,D,E,F,H
+D,Verde;C,G
+E,SinColor;C,G
+F,SinColor;C
+G,Rojo;B,D,E
+H,SinColor;B,C
