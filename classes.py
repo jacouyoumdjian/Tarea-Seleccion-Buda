@@ -13,7 +13,7 @@ class Node:
         node.neighbors.append(self)
 
 
-# Clase ShortestPath para represtar el camino más corto
+# Clase ShortestPath para representar el camino más corto
 class ShortestPath:
 
     def __init__(self, start, end):

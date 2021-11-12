@@ -25,6 +25,8 @@ Python :snake:.
 
 ## Decisiones de Diseño
 
+- Para el cumplimiento del objetivo de la tarea, se realizó la función `get_shortest_path` la cual recibe los parámetros `file_name, start_node, end_node, train_color` y se encuentra en el archivo `main.py`. En otras palabras, toda la lógica de calcular la ruta más corta se encuentra dentro de esta función.
+
 - Se utilizó una Programación Orientada a Objetos (Clases) para modelar las estaciones y la simulación de la ruta más corta.
 
 - Para el almacenamiento de los datos, se utilizaron diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
@@ -44,7 +46,7 @@ Para ejecutar el programa se debe introducir el siguiente comando por consola:
 
 `py main.py <ruta\archivo_input.txt>`
 
-Tal como se ilustra, es necesario introducir como parámetro la ruta del archivo que representa una red de metro. Por ejemplo, puede correr el comando: `py main.py tests\input.txt`
+Tal como se ilustra, es necesario introducir como parámetro la ruta del archivo que representa una red de metro. Por ejemplo, puede correr el comando: `py main.py tests\input.txt`.
 
 Luego, en la ejecución misma, se solicitará introducir por consola los siguiente parámetros:
 
@@ -52,13 +54,15 @@ Luego, en la ejecución misma, se solicitará introducir por consola los siguien
 - Una estación final de las que se muestra en consola (Ej: A, B, ...).
 - (Opcional) Un color de tren Rojo o Verde ingresando 0 o 1 respectivamente. Sino no se escoge un color, solamente presione "Enter".
 
+Cabe destacar que ejecutando el programa con la ruta `tests\input.txt` se puede testear un _happy path_ correspondiente a la red de metro presentada en el enunciado de la tarea.
+
 ## Formato del archivo de entrada (_input_)
 
 A continuación, se presente el formato del archivo que recibe el programa como input. Este es un archivo de texto (.txt) que representa una red de metro y todas las líneas del archivo tienen el siguiente formato:
 
 `NODO,COLOR_DEL_NODO;VECINO_1,VECINO_2,...,VECINO_N`
 
-A modo de ejemplo, un posible archivo `input.txt` sería:
+A modo de ejemplo, un posible archivo `ejemplo_input.txt` sería:
 
 ```
 A,SinColor;B
@@ -84,7 +88,7 @@ Los principales errores manejados en el código son los casos en que:
 
 ## Ejecución de tests automáticos
 
-En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes del algoritmo en distintas redes de metro. Para correr los tests automáticos se debe ejecutar el siguiente comando:
+En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro. Para correr los tests automáticos se debe ejecutar el siguiente comando:
 
 `py main_test.py`
 
