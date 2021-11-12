@@ -4,7 +4,7 @@
 
 ## Descripción
 
-El siguiente programa permita calcular la ruta con menor cantidad de estaciones entre dos estaciones de una red de metro, es decir, la ruta más corta entre dos puntos. Cabe destacar que algunas estaciones de la red de metro pueden tener un color asociado (Rojo o Verde) que indica que un tren exprés de color Verde pasará solo por estaciones sin color o Verde, y un tren exprés de color Rojo pasará solo por estaciones sin color o Roja. Para efectos del código, la red de metro será representada por un archivo _input_ y el resultado de la ejecución correponde a la ruta más corta la cual se imprimirá en pantalla.
+El siguiente programa permita calcular la ruta con menor cantidad de estaciones entre dos estaciones de una red de metro, es decir, la ruta más corta entre dos puntos. Cabe destacar que algunas estaciones de la red de metro pueden tener un color asociado (Rojo o Verde) que indica que un tren exprés de color Verde pasará solo por estaciones sin color o Verde, y un tren exprés de color Rojo pasará solo por estaciones sin color o Roja. Para efectos del código, la red de metro será representada por un archivo _input_ y el resultado de la ejecución correponde a la ruta más corta, la cual se imprimirá en pantalla.
 
 ## Estructura del repositorio
 
@@ -58,7 +58,7 @@ Cabe destacar que ejecutando el programa con la ruta `tests\input.txt` se puede 
 
 ## Formato del archivo de entrada (_input_)
 
-A continuación, se presente el formato del archivo que recibe el programa como input. Este es un archivo de texto (.txt) que representa una red de metro y todas las líneas del archivo tienen el siguiente formato:
+A continuación, se presente el formato del archivo que recibe el programa como _input_. Este es un archivo de texto (.txt) que representa una red de metro y todas las líneas del archivo tienen el siguiente formato:
 
 `NODO,COLOR_DEL_NODO;VECINO_1,VECINO_2,...,VECINO_N`
 
@@ -82,25 +82,27 @@ A -> B -> C -> H -> F
 
 Los principales errores manejados en el código son los casos en que:
 
-- Se ingresan valores para la estación inicial, final o para el color de tren, que generan una ruta que no es alcanzable. Por ejemplo, si es que se quiere llegar desde una estación inicial sin color a una estación final color verde, con un tren de color rojo. También, se maneja el caso de que se ingrese una estación que no pertenezca a la red de metro mostrada en consola. Para estos casos se imprime en pantalla: `Los valores ingresados generan una ruta no alcanzable`.
+- Se ingresan valores para la estación inicial, final o para el color de tren, que generan una ruta que no es alcanzable. Por ejemplo, si es que se quiere llegar desde una estación inicial sin color a una estación final color verde, con un tren de color rojo. También, se maneja el caso de que se ingrese como parámetro una estación (inicial o final) que no pertenezca a la red de metro mostrada en consola. Para estos casos se imprime en pantalla: `Los valores ingresados generan una ruta no alcanzable`.
 
-- Se ingresa un color para el tren que no corresponde a: sin color, rojo o verde. Para este caso se imprime en pantalla: `Se ingresó un valor para el color del tren incorrecto, por favor inténtelo de nuevo`.
+- Se ingresa un valor para el color para el tren que no corresponde ni a "sin color", "rojo" o "verde". Para este caso se imprime en pantalla: `Se ingresó un valor para el color del tren incorrecto, por favor inténtelo de nuevo`.
 
-## Ejecución de tests automáticos
+## Ejecución de _tests_ automáticos
 
-En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro.
+En el programa se implementan _tests_ automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro.
 
 ### Casos bordes
 
-- Ruta que no es alcanzable debido a que los colores de la estación final o inicial no permiten que un tren de color pase.
+- Ruta que no es alcanzable debido a que los colores de la estación inicial, final o del tren, no permiten que este último la recorra.
 - Caso en que existan dos o más rutas con la menor cantidad de estaciones según los parámetros iniciales. Se entrega solamente una ruta según lo expuesto en las decisiones de diseño.
-- La red de metro se compone de 1 o 2 estaciones.
+- Caso en que la red de metro se componga de 1 o 2 estaciones.
 
-Para correr los tests automáticos se debe ejecutar el siguiente comando:
+Para correr los _tests_ automáticos se debe ejecutar el siguiente comando:
 
 `py main_test.py`
 
-Los tests se construyeron con la lógica de calcular la ruta más corta entre dos estaciones fijas para distintas redes de metros, probando con cada uno de los posibles colores de tren (sin color, rojo o verde). Las rutas obtenidas se comparan con las respuestas presentes en el archivo `output.txt` indicando por consola el resultado del test (CORRECTO o INCORRECTO). Las dos estaciones fijas siempre serán las estaciones `A` y `B`, las cuáles se encontrarán siempre a distancias distintas una de la otra dada la configuración única de cada red de metro de prueba.
+Los _tests_ se construyeron con la lógica de calcular la ruta más corta entre dos estaciones fijas para distintas redes de metros, probando con cada uno de los posibles colores de tren (sin color, rojo o verde). Las rutas obtenidas se comparan con las respuestas presentes en el archivo `output.txt` indicando por consola el resultado del test (CORRECTO o INCORRECTO).
+
+Para efecto de los _tests_, las dos estaciones fijas serán la `A` y la `B`, las cuáles siempre se encontrarán a distancias distintas una de la otra dada la configuración única de cada red de metro de prueba.
 
 Tanto el archivo `output.txt` como los archivos de prueba que representan las redes de metro, se encuentran en la carpeta `tests`. Cada línea del archivo `output.txt` contiene las respuestas correctas para cada red de metro con el siguiente formato:
 
@@ -113,8 +115,6 @@ Cabe destacar que los archivos de prueba corresponden a archivos de texto que ti
 ## Supuestos de Modelación
 
 - En términos de la simulación de las estaciones, no habrán dos estaciones del mismo color seguidas. Sin embargo, si pueden haber estaciones sin color seguidas.
-
-- Para el cálculo de la ruta más corta con un tren de color (Rojo o Verde), si se consideran estaciones sin color, es decir, no se las saltan las estaciones que son comunes.
 
 ## Referencias
 
