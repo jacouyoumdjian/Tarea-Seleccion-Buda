@@ -29,6 +29,15 @@ Python :snake:.
 
 - Para el almacenamiento de los datos, se utilizaron diccionarios para que el acceso a la información sea más eficiente. En esta línea, la complejidad global del algoritmo es O(n^2).
 
+- En el caso de que exista más de una ruta con la menor cantidad de estaciones (es decir, más de una respuesta correcta), se realizará una selección por abecedario según el nombre de las estaciones. Por ejemplo, si es que se tienen las rutas:
+
+```
+A -> C -> E -> I -> B
+A -> C -> F -> J -> B
+```
+
+El programa escogerá la ruta `A -> C -> E -> I -> B` debido a que la "E" se encuentra antes que la "F" en el abecedario.
+
 ## Ejecución del programa
 
 Para ejecutar el programa se debe introducir el siguiente comando por consola:
@@ -93,7 +102,7 @@ Cabe destacar que los archivos de prueba corresponden a archivos de texto que ti
 
 - En términos de la simulación de las estaciones, no habrán dos estaciones del mismo color seguidas. Sin embargo, si pueden haber estaciones sin color seguidas.
 
-- Para el cálculo de la ruta más corta con un tren de color (Rojo y Verde), si se consideran estaciones sin color, es decir, no se las salta.
+- Para el cálculo de la ruta más corta con un tren de color (Rojo o Verde), si se consideran estaciones sin color, es decir, no se las saltan las estaciones que son comunes.
 
 ## Referencias
 
