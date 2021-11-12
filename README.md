@@ -90,7 +90,7 @@ Los principales errores manejados en el código son los casos en que:
 
 En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro.
 
-### Casos bordes abordados
+### Casos bordes
 
 - Ruta que no es alcanzable debido a que los colores de la estación final o inicial no permiten que un tren de color pase.
 - Caso en que existan dos o más rutas con la menor cantidad de estaciones según los parámetros iniciales. Se entrega solamente una ruta según lo expuesto en las decisiones de diseño.
