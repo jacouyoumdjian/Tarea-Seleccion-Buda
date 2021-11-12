@@ -1,0 +1,16 @@
+A,SinColor;C
+B,SinColor;P
+C,SinColor;A,D,E
+D,SinColor;C,E,F
+E,SinColor;C,D,H
+F,SinColor;D,G,J,K,M
+G,SinColor;F,H,I
+H,SinColor;E,G,I
+I,SinColor;G,H,P
+J,SinColor;F,K,P
+K,SinColor;F,J,L,M
+L,SinColor;K
+M,SinColor;F,K,N,O
+N,SinColor;M
+O,SinColor;M
+P,SinColor;B,I,J

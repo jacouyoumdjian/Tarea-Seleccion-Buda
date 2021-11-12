@@ -1,0 +1,6 @@
+A,SinColor;C
+B,SinColor;F
+C,Rojo;A,D
+D,SinColor;C,E
+E,Rojo;D,F
+F,Verde;B,E

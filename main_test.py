@@ -22,7 +22,7 @@ for filename in os.listdir(tests_directory):
     if filename.endswith("test.txt"):
         file_path = os.path.join(tests_directory, filename)
         print(
-            f"================ TEST AUTOMÁTICO {test_counter+1} ================")
+            f"================ TEST AUTOMÁTICO {test_counter} ================")
         tren_sin_color_test = get_shortest_path(file_path, 'A', 'B', '')
         tren_rojo_test = get_shortest_path(file_path, 'A', 'B', '0')
         tren_verde_test = get_shortest_path(file_path, 'A', 'B', '1')

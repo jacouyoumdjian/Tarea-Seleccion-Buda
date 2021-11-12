@@ -18,6 +18,8 @@ def get_shortest_path(file_name, start_node, end_node, train_color):
     # Estructuras para almacenamiento de datos de red de metro
     nodes_data = dict()
     all_node_name = []
+    curr_train_color = ""
+    opp_train_color = ""
 
     # Procesamiento archivo input
     with open(file_name, "r") as input_file:
@@ -31,11 +33,14 @@ def get_shortest_path(file_name, start_node, end_node, train_color):
 
     # Manejo del color del tren
     if train_color == '':
-        train_color = "SinColor"
+        curr_train_color = "SinColor"
+        opp_train_color = "SinColor"
     elif train_color == '0':
-        train_color = "Rojo"
+        curr_train_color = "Rojo"
+        opp_train_color = "Verde"
     elif train_color == '1':
-        train_color = "Verde"
+        curr_train_color = "Verde"
+        opp_train_color = "Rojo"
     else:
         return color_error
 
@@ -50,24 +55,44 @@ def get_shortest_path(file_name, start_node, end_node, train_color):
                 curr_node.neighbors.append(neighbor_node)
         graph_station[node_name] = curr_node
 
+    # print("\n")
+    # print(f"color del tren es: {curr_train_color}")
+    # print(f"color opuesto es: {opp_train_color}")
+
     # Caso en que tren tiene color
-    if (train_color != "SinColor") and (train_color != "ColorError"):
+    if (curr_train_color != "SinColor") and (curr_train_color != "ColorError"):
         for node_name in all_node_name:
-            if (graph_station[node_name].color == train_color) or (graph_station[node_name].color == "SinColor"):
+            if (graph_station[node_name].color == curr_train_color) or (graph_station[node_name].color == "SinColor"):
                 new_neighbors = []
-                other_neighbors = []
-                # Copia de vecinos a recorrer
-                other_neighbors.extend(graph_station[node_name].neighbors)
-                for nn_i in range(len(other_neighbors)):
-                    if (other_neighbors[nn_i].color != train_color) and (other_neighbors[nn_i].color != "SinColor"):
-                        new_neighbors.extend(other_neighbors[nn_i].neighbors)
-                        graph_station[node_name].neighbors.pop(0)
+                node_neighbors = []
+                node_neighbors.extend(graph_station[node_name].neighbors)
+                # print(
+                #     f"estoy en nodo {graph_station[node_name].name} con color {graph_station[node_name].color}")
+                # Encontrar vecinos alcanzables
+                for nn_i in range(len(node_neighbors)):
+                    # print(f"Mis vecinos son: {node_neighbors[nn_i].name}")
+                    if (node_neighbors[nn_i].color == opp_train_color):
+                        # print(
+                        #     f"nodo color opuesto: {node_neighbors[nn_i].name} indice: {nn_i}")
+                        new_neighbors.extend(node_neighbors[nn_i].neighbors)
+                        del_position = graph_station[node_name].neighbors.index(
+                            node_neighbors[nn_i])
+                        # print(
+                        #     f"mis vecinos hasta ahora: {graph_station[node_name].neighbors}")
+                        graph_station[node_name].neighbors.pop(del_position)
+                        #print("elimine nodo")
 
-                for new_i in new_neighbors:
-                    if new_i.name != node_name:
-                        graph_station[node_name].neighbors.append(new_i)
+                # Agregar nuevos vecinos
+                if new_neighbors:
+                    for new_i in new_neighbors:
+                        if new_i.name != node_name:
+                            graph_station[node_name].neighbors.append(new_i)
 
-            elif (graph_station[node_name].color != train_color) and (graph_station[node_name].color != "SinColor"):
+                # for node_test_i in graph_station[node_name].neighbors:
+                    # print(
+                    #     f"mis nuevos vecinos son: {node_test_i.name}")
+
+            elif graph_station[node_name].color == opp_train_color:
                 del graph_station[node_name]
 
     shortest_path_class = ""
