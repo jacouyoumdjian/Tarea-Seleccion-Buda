@@ -1,0 +1,2 @@
+A,Verde;B
+B,SinColor;A

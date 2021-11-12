@@ -4,3 +4,4 @@ A -> C -> B;A -> B;Los valores ingresados generan una ruta no alcanzable
 A -> C -> E -> B;A -> D -> B;Los valores ingresados generan una ruta no alcanzable
 A -> C -> H -> B;A -> C -> H -> B;A -> D -> B
 A -> C -> D -> F -> J -> P -> B;A -> C -> E -> I -> B;A -> D -> F -> P -> B
+A -> B;Los valores ingresados generan una ruta no alcanzable;A -> B

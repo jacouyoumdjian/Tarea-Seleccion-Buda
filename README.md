@@ -72,7 +72,7 @@ C,Rojo;B
 
 ## Salida (_output_)
 
-El _output_ del programa se visualiza por consola y corresponde a la menor ruta según los parámetros indicados anteriormente. El _output_ representa todas las estaciones que componen la ruta. Un ejemplo de output sería:
+El _output_ del programa se visualiza por consola y corresponde a la menor ruta según los parámetros indicados anteriormente. Este representa todas las estaciones que componen la ruta. Un ejemplo posible _output_ sería:
 
 ```
 A -> B -> C -> H -> F
@@ -88,7 +88,15 @@ Los principales errores manejados en el código son los casos en que:
 
 ## Ejecución de tests automáticos
 
-En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro. Para correr los tests automáticos se debe ejecutar el siguiente comando:
+En el programa se implementan tests automáticos para evaluar la correctitud de las partes más importantes (casos bordes) del algoritmo en distintas redes de metro.
+
+### Casos bordes abordados
+
+- Ruta que no es alcanzable debido a que los colores de la estación final o inicial no permiten que un tren de color pase.
+- Caso en que existan dos o más rutas con la menor cantidad de estaciones según los parámetros iniciales. Se entrega solamente una ruta según lo expuesto en las decisiones de diseño.
+- La red de metro se compone de 1 o 2 estaciones.
+
+Para correr los tests automáticos se debe ejecutar el siguiente comando:
 
 `py main_test.py`
 
